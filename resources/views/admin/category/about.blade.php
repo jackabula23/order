@@ -5,7 +5,7 @@
 <div class="about" id="about">
 	<div class="agileits_works-top">
 			<div class="col-md-4 about-img-right">
-				<img src="{{asset('resources/assets/images/ab.jpg')}}" alt=" " class="img-responsive" />
+				<img src="images/ab.jpg" alt=" " class="img-responsive" />
 			</div>
 			<div class="col-md-8 agileits_works-grid two">
 			 
@@ -33,4 +33,3 @@
 </div>
 <!-- //about -->
 @endsection
-
