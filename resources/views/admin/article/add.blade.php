@@ -32,9 +32,8 @@
                 <h3 class="card-title">新增文章</h3>
               </div>
               <!-- /.card-header -->
-              
               <!-- form start -->
-              <form role="form" action="{{url('admin/category')}}" method="POST">
+              <form role="form" action="{{url('admin/article')}}" method="POST" enctype="multipart/form-data">
                 {{ csrf_field() }}
                   @if(count($errors)>0)
                     @if(is_object($errors))
@@ -51,33 +50,79 @@
                 @endif
                 <div class="card-body">
                   <div class="form-group">
-                    <label style="line-height:38px;">父級分類</label>
-                    <select class="form-control select2 select2-hidden-accessible" style="width: 80%; float:right;" name="cate_pid" data-select2-id="1" tabindex="-1" aria-hidden="true">
+                    <label style="line-height:38px;">分類</label>
+                    <select class="form-control select2 select2-hidden-accessible" style="width: 80%; float:right;" name="cate_id" data-select2-id="1" tabindex="-1" aria-hidden="true">
                       <option selected="selected" data-select2-id="3" value="0">頂級分類</option>
                         @foreach ($data as $d)
-                          <option value="{{$d->cate_id}}">{{$d->cate_name}}</option>
+                          <option value="{{$d->cate_id}}">{{$d->_cate_name}}</option>
                         @endforeach
                     </select>
                   </div>
                   <div class="form-group">
-                    <label style="line-height:38px;">分類名稱</label>
-                    <input type="text" class="form-control" name="cate_name" style="width: 80%; float:right;" placeholder="請輸入分類名稱">
+                    <label style="line-height:38px;">文章標題</label>
+                    <input type="text" class="form-control" name="art_title" style="width: 80%; float:right;" placeholder="請輸入分類標題">
                   </div>
                   <div class="form-group">
-                    <label style="line-height:38px;">分類標題</label>
-                    <input type="text" class="form-control" name="cate_title" style="width: 80%; float:right;" placeholder="請輸入分類標題">
+                    <label style="line-height:38px;">編輯</label>
+                    <input type="text" class="form-control" name="art_editor" style="width: 80%; float:right;" placeholder="請輸入分類名稱">
                   </div>
                   <div class="form-group">
-                    <label style="line-height:38px;">排序</label>
-                    <input type="text" class="form-control" name="cate_order" style="width: 80%; float:right;" placeholder="請排序">
+                    <label style="line-height:38px;">圖片上傳</label>
+                    <input type="text" class="form-control" style="width: 80%; float:right;" name="art_thumb">
+                    <input id="file_upload" name="file_upload" type="file" multiple="true">
+                    <script src="{{asset('resources/org/uploadify/jquery.uploadify.min.js')}}" type="text/javascript"></script>
+                    <link rel="stylesheet" type="text/css" href="{{asset('resources/org/uploadify/uploadify.css')}}">
+                    <script type="text/javascript">
+                      <?php $timestamp = time();?>
+                      $(function() {
+                          $('#file_upload').uploadify({
+                              'buttonText' : '上傳圖片',
+                              'formData'     : {
+                                  'timestamp' : '<?php echo $timestamp;?>',
+                                  '_token'     : '{{csrf_token()}}'
+                              },
+                              'swf'      : "{{asset('resources/org/uploadify/uploadify.swf')}}",
+                              'uploader' : "{{url('admin/upload')}}",
+                              'onUploadSuccess' : function(file, data, response) {
+                                  $('input[name=art_thumb]').val(data);
+                                  $('#art_thumb_img').attr('src','http://127.0.0.1/order/'+data);
+                              }
+                          });
+                      });
+                  </script>
+                  <style>
+                        .uploadify{display:inline-block;}
+                        .uploadify-button{border:none; border-radius:5px; margin-top:8px;}
+                        table.add_tab tr td span.uploadify-button-text{color: #FFF; margin:0;}
+                  </style>                 
                   </div>
                   <div class="form-group">
-                    <label style="line-height:38px;">描述</label>
-                    <textarea class="form-control" name="cate_description" rows="2" style="width: 80%; float:right;" placeholder="你想描述什麼"></textarea>
+                    <img src="" alt="" id="art_thumb_img" style="max-width: 350px;max-height: 100px">                    
                   </div>
                   <div class="form-group">
                     <label style="line-height:38px;">關鍵字</label>
-                    <textarea class="form-control" name="cate_keywords" rows="2" style="width: 80%; float:right;" placeholder="請輸入關鍵字"></textarea>
+                    <input type="text" class="form-control" name="art_tag" style="width: 80%; float:right;" placeholder="請輸入關鍵字">                    
+                  </div>
+                  <div class="form-group">
+                    <label style="line-height:38px;">描述</label>
+                    <textarea class="form-control" name="art_description" rows="2" style="width: 80%; float:right;" placeholder="你想描述什麼"></textarea>
+                  </div>
+                  <div class="form-group">
+                    <label style="line-height:38px;">文章內容</label>
+                    <script type="text/javascript" charset="utf-8" src="{{asset('resources/org/ueditor/ueditor.config.js')}}"></script>
+                    <script type="text/javascript" charset="utf-8" src="{{asset('resources/org/ueditor/ueditor.all.min.js')}}"></script>
+                    <script type="text/javascript" charset="utf-8" src="{{asset('resources/org/ueditor/lang/zh-cn/zh-cn.js')}}"></script>
+
+                    <script id="editor" name="art_content" type="text/plain" style="width:620px;height:500px;"></script>
+                    <script type="text/javascript">
+                      var ue = UE.getEditor('editor');
+                    </script>
+                    <style>
+                      .edui-default{line-height: 28px;}
+                      div.edui-combox-body,div.edui-button-body,div.edui-splitbutton-body
+                      {overflow: hidden; height:20px;}
+                      div.edui-box{overflow: hidden; height:22px;}
+                    </style>
                   </div>
                 </div>
                 <!-- /.card-body -->

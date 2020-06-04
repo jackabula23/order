@@ -30,6 +30,8 @@
   <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
   {{-- 標題列旁邊的小圖示 --}}
   <link rel="icon" href="{{asset('resources/assets/images/fork.png')}}">
+  <!-- jQuery -->
+  <script src=" {{asset('resources/assets/js/jquery.min.js')}} "></script>
 </head>
 <body class="hold-transition sidebar-mini layout-fixed">
 <div class="wrapper">
@@ -42,8 +44,8 @@
         <a class="nav-link" data-widget="pushmenu" href="#"><i class="fas fa-bars"></i></a>
       </li>
     </ul>  
-    {{-- <!-- SEARCH FORM -->
-    <form class="form-inline ml-3">
+    <!-- SEARCH FORM -->
+    {{-- <form class="form-inline ml-3">
       <div class="input-group input-group-sm">
         <input class="form-control form-control-navbar" type="search" placeholder="Search" aria-label="Search">
         <div class="input-group-append">
@@ -53,6 +55,11 @@
         </div>
       </div>
     </form> --}}
+    <form class="form-inline ml-3">
+      <div class="input-group input-group-sm">
+        <a href="{{url('/')}}" target="_blank">前台首頁</a>
+      </div>
+    </form>
     <!-- Right navbar links -->
     <ul class="navbar-nav ml-auto">
       <!-- Notifications Dropdown Menu -->
@@ -105,21 +112,33 @@
             </a>
             <ul class="nav nav-treeview">
               <li class="nav-item">
-                <a href="{{url('admin/categories')}}" class="nav-link active">
+                <a href="{{url('admin/category')}}" class="nav-link active">
                   <i class="far fa-circle nav-icon"></i>
                   <p>類別管理</p>
                 </a>
               </li>
               <li class="nav-item">
-                <a href="./index2.html" class="nav-link">
+                <a href="{{url('admin/article')}}" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
-                  <p>Dashboard v2</p>
+                  <p>文章管理</p>
                 </a>
               </li>
               <li class="nav-item">
-                <a href="./index3.html" class="nav-link">
+                <a href="{{url('admin/links')}}" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
-                  <p>Dashboard v3</p>
+                  <p>連結管理</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="{{url('admin/navs')}}" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>導覽列管理</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="{{url('admin/config')}}" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>配置管理</p>
                 </a>
               </li>
             </ul>
@@ -198,8 +217,7 @@
 </div>
 <!-- ./wrapper -->
 
-<!-- jQuery -->
-<script src=" {{asset('resources/assets/js/jquery.min.js')}} "></script>
+
 <!-- jQuery UI 1.11.4 -->
 <script src=" {{asset('resources/assets/js/jquery-ui.min.js')}} "></script>
 <!-- Resolve conflict in jQuery UI tooltip with Bootstrap tooltip -->

@@ -35,8 +35,8 @@
               
               <!-- form start -->
               <form role="form" action="{{url('admin/category/'.$field->cate_id)}}" method="POST">
-                {{ csrf_field() }}
                 <input type="hidden" name="_method" value="put">
+                {{ csrf_field() }}
                   @if(count($errors)>0)
                     @if(is_object($errors))
                         @foreach($errors->all() as $error)
