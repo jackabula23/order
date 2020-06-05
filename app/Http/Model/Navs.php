@@ -9,7 +9,7 @@ class Navs extends Model
     protected $table ='navs';
     protected $primaryKey = 'nav_id';
     public $timestamps = false;
-    // protected $guarded = [];
-    protected $guarded = ['name'];
+    protected $guarded = [];
+    // protected $guarded = ['name'];
     // protected $fillable = ['nav_name'];
 }
