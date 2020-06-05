@@ -51,9 +51,12 @@
                 @endif
                 <div class="card-body">
                   <div class="form-group">
-                    <label style="line-height:38px; float: left;">導覽名稱</label>
-                    <input type="text" class="form-control" name="nav_name" style="width: 50%; float:right;" placeholder="請輸入導覽名稱">
-                    <input type="text" class="form-control" name="nav_alias">
+                    <label style="line-height:38px;">導覽名稱</label>
+                    <input type="text" class="form-control" name="nav_name" style="width: 80%; float:right;" placeholder="請輸入導覽名稱">
+                  </div>
+                  <div class="form-group">
+                    <label style="line-height:38px;">導覽分類名稱</label>
+                    <input type="text" class="form-control" style="width: 80%; float:right;" name="nav_alias" placeholder="請輸入導覽分類名稱">
                   </div>
                   <div class="form-group">
                     <label style="line-height:38px;">URL</label>

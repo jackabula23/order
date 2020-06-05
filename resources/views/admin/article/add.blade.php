@@ -60,16 +60,16 @@
                   </div>
                   <div class="form-group">
                     <label style="line-height:38px;">文章標題</label>
-                    <input type="text" class="form-control" name="art_title" style="width: 80%; float:right;" placeholder="請輸入分類標題">
+                    <input type="text" class="form-control" name="art_title" style="width: 80%; float:right;" placeholder="請輸入標題">
                   </div>
                   <div class="form-group">
-                    <label style="line-height:38px;">編輯</label>
-                    <input type="text" class="form-control" name="art_editor" style="width: 80%; float:right;" placeholder="請輸入分類名稱">
+                    <label style="line-height:38px;">作者</label>
+                    <input type="text" class="form-control" name="art_editor" style="width: 80%; float:right;" placeholder="請輸入作者名稱">
                   </div>
                   <div class="form-group">
                     <label style="line-height:38px;">圖片上傳</label>
                     <input type="text" class="form-control" style="width: 80%; float:right;" name="art_thumb">
-                    <input id="file_upload" name="file_upload" type="file" multiple="true">
+                    <input id="file_upload"  type="file" multiple="true">
                     <script src="{{asset('resources/org/uploadify/jquery.uploadify.min.js')}}" type="text/javascript"></script>
                     <link rel="stylesheet" type="text/css" href="{{asset('resources/org/uploadify/uploadify.css')}}">
                     <script type="text/javascript">

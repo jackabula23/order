@@ -52,13 +52,16 @@
                 @endif
                 <div class="card-body">
                   <div class="form-group">
-                    <label style="line-height:38px; float: left;">導覽列名稱</label>
-                    <input type="text" class="form-control" style="width: 50%; float:right;" value="{{$field->nav_name}}">
-                    <input type="text" class="form-control" value="{{$field->nav_alias}}">
+                    <label style="line-height:38px;">導覽列名稱</label>
+                    <input type="text" class="form-control" style="width: 80%; float:right;" value="{{$field->nav_name}}">
+                  </div>
+                  <div class="form-group">
+                    <label style="line-height:38px;">導覽列分類</label>
+                    <input type="text" class="form-control" style="width: 80%; float:right;" value="{{$field->nav_alias}}">
                   </div>
                   <div class="form-group">
                     <label style="line-height:38px;">URL</label>
-                    <input type="text" class="form-control" name="nav_url" style="width: 80%; float:right;" value="{{$field->nav_url}}" placeholder="請輸入分類標題">
+                    <input type="text" class="form-control" name="nav_url" style="width: 80%; float:right;" value="{{$field->nav_url}}">
                   </div>
                   <div class="form-group">
                     <label style="line-height:38px;">排序</label>

@@ -5,9 +5,16 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Model\Navs;
 use Illuminate\Http\Request;
 
+use App\Http\Requests;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Input;
 use Illuminate\Support\Facades\Validator;
+
+if (version_compare(PHP_VERSION, '7.2.0', '>=')) {
+    // Ignores notices and reports all other kinds... and warnings
+    error_reporting(E_ALL ^ E_NOTICE ^ E_WARNING);
+    // error_reporting(E_ALL ^ E_WARNING); // Maybe this is enough
+}
 
 class NavsController extends Controller
 {
@@ -16,6 +23,7 @@ class NavsController extends Controller
         $data = Navs::orderBy('nav_order','asc')->get();
         return view('admin.navs.index',compact('data'));
     }
+
 
     public function changeOrder()
     {
@@ -75,7 +83,6 @@ class NavsController extends Controller
 
         return view('admin.navs.edit',compact('field'));
     }
-
     //put|patch admin/navs/{navs}  更新自定义导航
     public function update($nav_id) {
         $input = Input::except('_token','_method');
@@ -104,8 +111,12 @@ class NavsController extends Controller
         return $data;
     }
 
+
+
     //get admin/category/{category}  显示单个链接信息
     public function show() {
         echo 'get admin/navs/{nav}';
     }
+
+
 }

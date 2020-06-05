@@ -65,7 +65,7 @@
                     <input type="text" class="form-control" name="art_title" style="width: 80%; float:right;" value="{{$field->art_title}}">
                   </div>
                   <div class="form-group">
-                    <label style="line-height:38px;">編輯</label>
+                    <label style="line-height:38px;">作者</label>
                     <input type="text" class="form-control" name="art_editor" style="width: 80%; float:right;" value="{{$field->art_editor}}">
                   </div>
                   <div class="form-group">

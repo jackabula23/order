@@ -114,7 +114,7 @@
               <li class="nav-item">
                 <a href="{{url('admin/category')}}" class="nav-link active">
                   <i class="far fa-circle nav-icon"></i>
-                  <p>類別管理</p>
+                  <p>分類管理</p>
                 </a>
               </li>
               <li class="nav-item">

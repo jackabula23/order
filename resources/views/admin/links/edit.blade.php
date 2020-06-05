@@ -54,15 +54,15 @@
                 <div class="card-body">
                   <div class="form-group">
                     <label style="line-height:38px;">連結名稱</label>
-                    <input type="text" class="form-control" name="link_name" style="width: 80%; float:right;" value="{{$field->link_name}}" placeholder="請輸入分類名稱">
+                    <input type="text" class="form-control" name="link_name" style="width: 80%; float:right;" value="{{$field->link_name}}">
                   </div>
                   <div class="form-group">
                     <label style="line-height:38px;">URL</label>
-                    <input type="text" class="form-control" name="link_url" style="width: 80%; float:right;" value="{{$field->link_url}}" placeholder="請輸入分類標題">
+                    <input type="text" class="form-control" name="link_url" style="width: 80%; float:right;" value="{{$field->link_url}}">
                   </div>
                   <div class="form-group">
                     <label style="line-height:38px;">連接標題</label>
-                    <input type="text" class="form-control" name="link_title" style="width: 80%; float:right;" value="{{$field->link_title}}" placeholder="請排序">
+                    <input type="text" class="form-control" name="link_title" style="width: 80%; float:right;" value="{{$field->link_title}}">
                   </div>
                   <div class="form-group">
                     <label style="line-height:38px;">排序</label>

@@ -11,8 +11,18 @@
 |
 */
 
+
 Route::get('/', function () {
     return view('welcome');
+});
+
+Route::group(['middleware' => ['web']], function () {
+    Route::get('/', 'Home\IndexController@index');
+    Route::get('/cate/{cate_id}', 'Home\IndexController@cate');
+    Route::get('/a/{art_id}', 'Home\IndexController@article');
+
+    Route::get('admin/code', 'Admin\LoginController@code');
+    Route::any('admin/login', 'Admin\LoginController@login');
 });
 
 Route::group(['middleware' => ['web', 'admin.login'], 'prefix' => 'admin', 'namespace' => 'Admin'], function () {
@@ -29,6 +39,7 @@ Route::group(['middleware' => ['web', 'admin.login'], 'prefix' => 'admin', 'name
     Route::resource('links', 'LinksController');
     Route::any('links/changeorder','LinksController@changeOrder');
 
+    //導覽列路由
     Route::resource('navs', 'NavsController');
     Route::post('navs/changeorder','NavsController@changeOrder');
 
@@ -42,5 +53,4 @@ Route::group(['middleware' => ['web', 'admin.login'], 'prefix' => 'admin', 'name
     Route::post('config/changecontent','ConfigController@changeContent');
 });
 
-Route::get('admin/code', 'Admin\LoginController@code');
-Route::any('admin/login', 'Admin\LoginController@login');
+

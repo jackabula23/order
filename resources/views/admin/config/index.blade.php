@@ -76,6 +76,7 @@
                       </tr>
                   </tfoot>
                 </table>
+                <button type="submit" class="btn btn-primary" style="float: right; background-color:#28a745; border-color:#28a745; margin-top:50px;">送出</button>
               </form>
             </div>
             <!-- /.card-body -->
